@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nike</title>
     <meta name='csrf-token' content='{{ csrf_token() }}'>
+    <script src="https://kit.fontawesome.com/30a8bb7413.js" crossorigin="anonymous"></script>
     @vite('resources/css/app.css')
 
 </head>
