@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::group(
         Route::get('/user/{id}', [AuthController::class, 'getUser']);
     },
 );
+
+Route::post('/create-user', [UserController::class, 'createUser']);

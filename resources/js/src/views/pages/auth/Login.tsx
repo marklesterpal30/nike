@@ -1,41 +1,51 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import nikelogo from "../../assets/nikelogo.jpg";
 import nikeswoosh from "../../assets/nikelogowhite.jpg";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import apiService from "../../../services/ApiService";
 
 const Login = () => {
+    //NAVIGATTION
     const navigate = useNavigate();
-
     const goToRegister = () => {
         navigate("/register");
     };
 
-    const passwordRef = useRef();
-    const eyeRef = useRef();
-
+    //TOGGLE PASSWORD
+    const [isPassswordVisible, setIsPasswordVisible] = useState(false);
     const togglePassword = () => {
-        const input = passwordRef.current;
-        const eye = eyeRef.current;
-
-        if (input.type === "password") {
-            input.type = "text";
-            eye.classList.remove("fa-eye");
-            eye.classList.add("fa-eye-slash");
-        } else {
-            input.type = "password";
-            eye.classList.remove("fa-eye-slash");
-            eye.classList.add("fa-eye");
-        }
+        setIsPasswordVisible(!isPassswordVisible);
     };
+
+    //AXIOS API LOGIN
+    const { register, handleSubmit } = useForm();
+    const Login = (data) => {
+        apiService;
+        apiService
+            .post("auth/login", data)
+            .then((response) => {
+                console.log(response.data.message);
+                if ((response.status = 200)) {
+                    navigate("/home");
+                }
+            })
+            .catch((error) => {
+                console.log("error k boi");
+            });
+    };
+
     return (
         <div className="flex h-screen">
-            <div className="w-1/2 flex items-center justify-center">
+            {/* LEFT SIDE IMAGE */}
+            <div className="w-1/2 hidden md:flex items-center justify-center">
                 <img src={nikelogo} alt="Nike logo" />
             </div>
-            <div className="w-1/2 bg-black/95">
+            {/* RIGHT SIDE IMAGE */}
+            <div className="w-full md:w-1/2 bg-black">
                 <form
-                    action=""
-                    className="mt-4  p-6 px-32 rounded-md text-white"
+                    onSubmit={handleSubmit(Login)}
+                    className="mt-4 px-4 md:p-6 md:px-32 rounded-md text-white"
                 >
                     <div className="flex justify-center">
                         <img
@@ -49,23 +59,32 @@ const Login = () => {
                     </h1>
 
                     {/* EMAIL AND PASSWORD INPUT */}
-                    <div className="space-y-4 font-inter font-medium mt-4">
-                        <input
-                            type="text"
-                            className="w-full border border-white py-3 px-2 rounded-sm bg-black text-white placeholder-white focus:outline-none"
-                            placeholder="Email"
-                        />
+                    <div className="space-y-4 font-inter font-medium mt-20 md:mt-4">
+                        {/* INPUT EMAIL */}
+                        <div>
+                            <input
+                                {...register("email")}
+                                type="text"
+                                className="w-full border border-white py-3 px-2 rounded-sm bg-black text-white placeholder-white focus:outline-none"
+                                placeholder="Email"
+                            />
+                        </div>
+
+                        {/* INPUT PASSWORD */}
                         <div className="relative">
                             <input
-                                type="password"
-                                ref={passwordRef}
+                                {...register("password")}
+                                type={isPassswordVisible ? "text" : "password"}
                                 className="w-full border border-white py-3 px-2 rounded-sm bg-black text-white placeholder-white focus:outline-none"
                                 placeholder="Password"
                             />
                             <i
-                                ref={eyeRef}
                                 onClick={togglePassword}
-                                className="fa-solid fa-eye absolute top-4 right-5"
+                                className={`fa-solid  ${
+                                    isPassswordVisible
+                                        ? "fa-eye-slash"
+                                        : "fa-eye"
+                                } absolute top-4 right-5`}
                             ></i>
                         </div>
                     </div>
@@ -87,7 +106,10 @@ const Login = () => {
 
                     {/* LOGIN AND REGISTER BUTTONS */}
                     <div className="space-y-2 font-inter">
-                        <button className="w-full py-3 bg-white text-black rounded-md font-medium">
+                        <button
+                            type="submit"
+                            className="w-full py-3 bg-white text-black rounded-md font-medium"
+                        >
                             LOGIN
                         </button>
                         <button
@@ -99,13 +121,13 @@ const Login = () => {
                         </button>
                     </div>
 
-                    <div className="flex items-center justify-between mt-3">
+                    <div className="flex items-center justify-between mt-6 md:mt-3">
                         <div className="bg-white/90 h-0.5 w-full"></div>
                         <p className="w-full text-center">Or Register With</p>
                         <div className="bg-white/90 h-0.5 w-full"></div>
                     </div>
 
-                    <div className="flex justify-evenly  mt-3 items-center">
+                    <div className="flex justify-evenly mt-6 md:mt-3 items-center">
                         <button className="flex items-center justify-center space-x-1 bg-white w-28 px-4 py-2 rounded-sm">
                             <i className="fa-brands fa-google text-black"></i>
                             <p className="text-black font-semibold">Google</p>
