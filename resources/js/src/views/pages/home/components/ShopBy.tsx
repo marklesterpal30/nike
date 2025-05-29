@@ -37,15 +37,15 @@ const ShopBy = () => {
     };
 
     return (
-        <div className="px-20 relative mt-32">
+        <div className="px-4 md:px-20 font-inter relative mt-28 md:mt-32">
             <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-medium mb-4">Shop By Icons</h2>
                 <div className="flex space-x-2">
                     <button onClick={scrollLeft}>
-                        <i className="fa-solid fa-chevron-left px-6 py-5 rounded-full bg-gray-200 hover:bg-gray-300"></i>
+                        <i className="fa-solid fa-chevron-left px-5 md:px-6 py-4 md:py-5 rounded-full bg-gray-200 hover:bg-gray-300"></i>
                     </button>
                     <button onClick={scrollRight}>
-                        <i className="fa-solid fa-chevron-right px-6 py-5 rounded-full bg-gray-200 hover:bg-gray-300"></i>
+                        <i className="fa-solid fa-chevron-right px-5 md:px-6 py-4 md:py-5 rounded-full bg-gray-200 hover:bg-gray-300"></i>
                     </button>
                 </div>
             </div>
@@ -54,14 +54,14 @@ const ShopBy = () => {
             {/* Scrollable Image List */}
             <div
                 ref={scrollRef}
-                className="flex space-x-3 py-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+                className="flex space-x-2 md:space-x-3 py-4 md:py-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
             >
                 {shoeses.map((imgSrc, idx) => (
                     <img
                         key={idx}
                         src={imgSrc}
                         alt={`shoe-${idx + 1}`}
-                        className="h-[333px] w-[430px] flex-shrink-0 snap-start"
+                        className="h-[333px] w-[311px] md:w-[430px] flex-shrink-0 snap-start"
                     />
                 ))}
             </div>

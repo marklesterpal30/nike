@@ -4,11 +4,15 @@ import dontmiss2 from "../../../assets/dontmiss3.jpg";
 
 const Dontmiss = () => {
     return (
-        <div className="px-20 mt-32 font-inter">
+        <div className="px-4 md:px-20 mt-32 font-inter">
             <h2 className="text-2xl font-medium mb-4">Don't Miss</h2>
-            <div className="grid grid-cols-2 gap-x-4">
-                <div className="relative">
-                    <img src={dontmiss1} alt="" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-x-4">
+                <div className="relative h-[555px] md:h-full">
+                    <img
+                        src={dontmiss1}
+                        alt=""
+                        className="object-cover h-full w-full"
+                    />
                     <div className="absolute bottom-12 left-8 space-y-4">
                         <h2 className="text-white font-semibold text-2xl">
                             Luka.77 'Space Navigator'
@@ -18,8 +22,12 @@ const Dontmiss = () => {
                         </button>
                     </div>
                 </div>
-                <div className="relative">
-                    <img src={dontmiss2} alt="" />
+                <div className="relative h-[555px] md:h-full">
+                    <img
+                        src={dontmiss2}
+                        alt=""
+                        className="object-cover h-full w-full"
+                    />
                     <div className="absolute bottom-12 left-8 space-y-4">
                         <h2 className="text-white font-semibold text-2xl">
                             Luka.77 'Space Navigator'

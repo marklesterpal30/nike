@@ -76,7 +76,7 @@ const Header = () => {
                     className="absolute w-full h-full flex flex-col items-center justify-center"
                 >
                     <div>
-                        <h2 className="text-xl font-normal">
+                        <h2 className="text-lg md:text-xl font-normal">
                             {slides[index].title}
                         </h2>
                     </div>

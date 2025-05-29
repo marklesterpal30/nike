@@ -13,7 +13,7 @@ import YouTubePlaylistUI from "./components/YouTubePlaylistUI";
 
 const Home = () => {
     return (
-        <div>
+        <div className="w-screen overflow-hidden">
             <Navbar />
             <Header />
             <Banner />

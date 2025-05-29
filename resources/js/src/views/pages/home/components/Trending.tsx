@@ -84,13 +84,13 @@ const Trending = () => {
     };
 
     return (
-        <div className="px-20 mt-32 font-inter">
+        <div className="px-4 md:px-20 mt-32 font-inter">
             <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-medium mb-4">Trending Now</h2>
-                <div className="flex items-center">
-                    <div className="flex items-center space-x-8">
+                <h2 className="text-2xl font-medium md:mb-4">Trending Now</h2>
+                <div className=" items-center hidden md:flex">
+                    <div className="flex items-center space-x-8 ">
                         <h2 className="text-lg font-medium text-black">Shop</h2>
-                        <div className="space-x-3">
+                        <div className="space-x-3 ">
                             <button onClick={scrollLeft}>
                                 <i className="fa-solid fa-chevron-left px-6 py-5 rounded-full bg-gray-200 hover:bg-gray-300"></i>
                             </button>
@@ -103,15 +103,15 @@ const Trending = () => {
             </div>
             <div
                 ref={scrollRef}
-                className="flex space-x-3 snap-x snap-mandatory scrollbar-hide overflow-x-auto"
+                className="flex space-x-1 md:space-x-3 snap-x snap-mandatory scrollbar-hide overflow-x-auto"
             >
                 {trendings.map((trending, index) => (
-                    <div className="py-10">
+                    <div className="py-4 md:py-10">
                         <div className="flex">
                             <img
                                 src={trending.image}
                                 alt=""
-                                className="h-[333px] w-[430px] flex-shrink-0 snap-start"
+                                className="md:h-[333px] w-[333px] md:w-[430px] flex-shrink-0 snap-start"
                             />
                         </div>
                         <div className="mt-4 space-y-2">

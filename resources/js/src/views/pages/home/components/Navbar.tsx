@@ -32,10 +32,14 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="bg-white  sticky top-0 z-50"
         >
-            <div className=" flex flex-wrap items-center justify-between md:px-14 w-full p-2 font-inter">
+            <div className=" flex flex-wrap items-center justify-between md:px-14 w-full py-2 font-inter">
                 {/* LOGO */}
                 <a className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src={nikeswoosh} alt="" className="w-20  h-12" />
+                    <img
+                        src={nikeswoosh}
+                        alt=""
+                        className="w-20  h-12 md:h-16"
+                    />
                 </a>
                 <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     {/* PROFILE AVATAR */}

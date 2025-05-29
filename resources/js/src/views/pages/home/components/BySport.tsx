@@ -32,10 +32,10 @@ const BySport = () => {
     };
 
     return (
-        <div className="px-20 mt-32">
+        <div className="px-4 md:px-20 mt-32">
             <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-medium mb-4">Shop By Sports</h2>
-                <div className="flex space-x-2">
+                <h2 className="text-2xl font-medium md:mb-4">Shop By Sports</h2>
+                <div className="md:flex space-x-2 hidden">
                     <button onClick={scrollLeft}>
                         <i className="fa-solid fa-chevron-left px-6 py-5 rounded-full bg-gray-200 hover:bg-gray-300"></i>
                     </button>
@@ -46,13 +46,13 @@ const BySport = () => {
             </div>
             <div
                 ref={scrollRef}
-                className="flex  space-x-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide py-6"
+                className="flex  space-x-1 md:space-x-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide py-6"
             >
                 {sports.map((sport, index) => (
                     <div className="flex relative">
                         <img
                             src={sport.image}
-                            className="flex-shrink-0 w-[424px] h-[300pxpx] snap-start"
+                            className="flex-shrink-0 h-[333px] w-[333px] md:w-[424px] md:h-[300pxpx] snap-start"
                             alt=""
                         />
                         <button className="absolute bottom-10 font-semibold text-black left-12 bg-white px-4 py-2 rounded-2xl">
