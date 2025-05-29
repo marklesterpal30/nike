@@ -13,7 +13,7 @@ import YouTubePlaylistUI from "./components/YouTubePlaylistUI";
 
 const Home = () => {
     return (
-        <div className="w-screen overflow-hidden">
+        <div className="w-screen ">
             <Navbar />
             <Header />
             <Banner />
@@ -24,8 +24,6 @@ const Home = () => {
             <Trending />
             <BySport />
             <Footer />
-            <div className="h-screen bg-gray-50"></div>
-            <div className="h-screen bg-gray-50"></div>
         </div>
     );
 };
