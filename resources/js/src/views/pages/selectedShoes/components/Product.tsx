@@ -81,7 +81,7 @@ const Product = () => {
                         alt=""
                         className="w-auto  h-auto"
                     />
-                    <button className="bg-white absolute top-4 left-4 text-black px-5 py-2.5 rounded-3xl">
+                    <button className="bg-white absolute top-4 left-4 md:left-24 text-black px-5 py-2.5 rounded-3xl">
                         <i className="fa-solid fa-star"></i> Highly Rated
                     </button>
                 </div>

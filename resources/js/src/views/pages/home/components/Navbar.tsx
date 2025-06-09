@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import nikeswoosh from "../../../assets/nikeswoosh.png";
 import jordanlogo from "../../../assets/jordanlogo.png";
+import shoes1 from "../../../assets/shoes/shoes1.jpg";
 
 const Navbar = ({ isMobile, sidebarOpen, setSidebarOpen }) => {
     // Hide/show navbar on scroll
@@ -68,14 +69,58 @@ const Navbar = ({ isMobile, sidebarOpen, setSidebarOpen }) => {
                         {/* PROFILE AVATAR */}
                         <button
                             type="button"
-                            className="flex space-x-1.5 text-xl"
+                            className="flex items-center space-x-1.5 text-xl"
                             id="user-menu-button"
                             aria-expanded="false"
                             // data-dropdown-toggle="user-dropdown"
                             data-dropdown-placement="bottom"
                         >
                             <i className="fa-regular fa-heart text-black"></i>
-                            <i className="fa-solid fa-bag-shopping text-black"></i>
+                            <div className="relative group">
+                                <i className="fa-solid fa-bag-shopping text-black cursor-pointer"></i>
+
+                                {/* Cart Dropdown */}
+                                <div className="absolute top-6 -right-11 md:right-0  w-80 md:w-96 bg-white shadow-xl rounded-xl p-5 z-50 hidden group-hover:block">
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex items-center space-x-2">
+                                            <i className="fa-solid fa-circle-check text-green-500"></i>
+                                            <h2 className="text-[19px] tracking-tight font-medium ">
+                                                Added to Bag
+                                            </h2>
+                                        </div>
+                                        <i className="fa-solid fa-circle-xmark text-2xl text-gray-400"></i>
+                                    </div>
+                                    <div className="flex space-x-2 mt-4">
+                                        <img
+                                            src={shoes1}
+                                            alt=""
+                                            className="w-[121px]"
+                                        />
+                                        <div className="text-left text-sm space-y-0.5">
+                                            <h2 className="font-medium text-black text-lg">
+                                                Nike Pegasus Plus
+                                            </h2>
+                                            <p className="text-sm text-black/60">
+                                                Mens Road Running Shoes
+                                            </p>
+                                            <p className="text-sm text-black/60">
+                                                Size US 9
+                                            </p>
+                                            <h2 className="text-black font-medium text-[16px]">
+                                                ₱9,895
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-1 mt-3">
+                                        <button className="w-full rounded-3xl text-[16px] text-md py-3 border-2 border-gray-200">
+                                            View Bag(10)
+                                        </button>
+                                        <button className="w-full text-[16px] rounded-3xl py-3 border-2 text-white bg-black">
+                                            Checkout
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </button>
 
                         {/* PHONE HAMBURGER MENU */}
