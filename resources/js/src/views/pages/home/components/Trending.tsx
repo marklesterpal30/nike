@@ -106,7 +106,7 @@ const Trending = () => {
                 className="flex space-x-1 md:space-x-3 snap-x snap-mandatory scrollbar-hide overflow-x-auto"
             >
                 {trendings.map((trending, index) => (
-                    <div className="py-4 md:py-10">
+                    <div key={index} className="py-4 md:py-10">
                         <div className="flex">
                             <img
                                 src={trending.image}

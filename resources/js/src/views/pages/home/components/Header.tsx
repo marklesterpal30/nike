@@ -17,7 +17,7 @@ const Header = () => {
     const slides = [
         {
             id: 1,
-            title: "Free Standard Delivery & 30 Day Free Return",
+            title: "Free  Delivery & 30 Day Free Return",
             button1: "Join Us",
             button2: "View Details",
         },

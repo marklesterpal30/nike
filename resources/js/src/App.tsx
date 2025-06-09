@@ -1,11 +1,14 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./routes/Routes";
+import { ProductProvider } from "./context/ProductContext";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <Routes />
+            <ProductProvider>
+                <Routes />
+            </ProductProvider>
         </BrowserRouter>
     );
 };

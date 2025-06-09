@@ -49,7 +49,7 @@ const BySport = () => {
                 className="flex  space-x-1 md:space-x-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide py-6"
             >
                 {sports.map((sport, index) => (
-                    <div className="flex relative">
+                    <div key={index} className="flex relative">
                         <img
                             src={sport.image}
                             className="flex-shrink-0 h-[333px] w-[333px] md:w-[424px] md:h-[300pxpx] snap-start"

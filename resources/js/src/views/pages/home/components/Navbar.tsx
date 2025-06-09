@@ -3,19 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import nikeswoosh from "../../../assets/nikeswoosh.png";
 import jordanlogo from "../../../assets/jordanlogo.png";
 
-import { useMediaQuery } from "react-responsive";
-
-const Navbar = () => {
+const Navbar = ({ isMobile, sidebarOpen, setSidebarOpen }) => {
     // Hide/show navbar on scroll
-    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
     // Sidebar open state
-    const [sidebarOpen, setSidebarOpen] = useState(isMobile);
 
     const handleScroll = () => {
+        if (sidebarOpen) return; // prevent scroll logic if sidebar is open
+
         const currentScrollY = window.scrollY;
 
         if (currentScrollY > lastScrollY) {
@@ -31,8 +29,8 @@ const Navbar = () => {
         if (isMobile) {
             setSidebarOpen(false);
         }
-        window.addEventListener("scroll", handleScroll);
 
+        window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY, isMobile]);
 
@@ -73,7 +71,7 @@ const Navbar = () => {
                             className="flex space-x-1.5 text-xl"
                             id="user-menu-button"
                             aria-expanded="false"
-                            data-dropdown-toggle="user-dropdown"
+                            // data-dropdown-toggle="user-dropdown"
                             data-dropdown-placement="bottom"
                         >
                             <i className="fa-regular fa-heart text-black"></i>
